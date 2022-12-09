@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Evoting_Application.Models.Document>
+
+@{
+    ViewBag.Title = "ViewDocumentAdmin";
+}
+
+<h2>View Document</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/ViewDocuments.css">
+</head>
+@if (Model != null)
+{
+    <table class="table inside-table">
+        <tr >
+
+            <th class="edit-text">
+                Document
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    <img src="@Url.Content(item.DocumentPath)" width="550" height="350" />
+                </td>
+
+            </tr>
+        }
+
+    </table>
+}
+@if (Model == null)
+{
+    <div class="form-div">NO DOCUMENTS UPLOADED YET</div>
+}
+
+
+

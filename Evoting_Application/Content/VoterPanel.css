@@ -1,0 +1,69 @@
+﻿.registration-btn {
+    text-align: center;
+    color: white;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-size: 100% 100% ;
+    box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.6), 1px 6px 20px 1px rgba(0, 0, 0, 0.25);
+}
+.parent {
+    background-image: url(..//Scripts/Backgroundimages/istockphoto-1157329161-170667a.jpg);
+    background-color: #FFFDE7;
+    height: 70rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 2rem;
+    margin-left: 150px;
+    margin-top:20px;
+    padding-right: 30px;
+}
+
+.child {
+    height: 20rem;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.6), 1px 6px 20px 1px rgba(0, 0, 0, 0.25);
+}
+    
+.child-title {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom:30px;
+    font-weight: bold;
+    font-size: large;
+    font-display: block;
+    margin-right:100px;
+    background-color:rosybrown;
+    width:350px;
+}
+.account-detail {
+     background-image: url(../Scripts/Backgroundimages/AccountImage.jpg);
+     background-position: center; 
+     background-size:80% 100%;
+
+}
+.upload-documents {
+     background-image: url(https://img.freepik.com/premium-vector/upload-document-uploading-file-flat-icon-share-send-document-file-uploading-downloading-synchronizing-file-icon-use-web-page-mobile-apps-ui-web-hosting_435184-1097.jpg?w=2000); 
+     
+}
+.view-documents {
+     background-image: url(https://media.istockphoto.com/id/1191488316/vector/documents-folder-with-paper-sheets-flat-illustration-of-folder-with-checklist-icon-for-web.jpg?s=170667a&w=0&k=20&c=EH-4_2mNIMs-3jn_bCEBIvedhyNmQGb5DK_2Kyi2iFI=);
+     
+}
+.apply-candidate {
+    background-image: url(../Scripts/Backgroundimages/ApplyCandidate.jpg);
+    background-size: 80% 80%;
+    background-position: center;
+}
+.apply-vote {
+    background-image: url(https://img.freepik.com/free-vector/hand-with-voting-sign-election_1017-18637.jpg?w=2000);
+    
+}
+.result {
+    background-image: url(../Scripts/Backgroundimages/VoteMatter.jpg)
+}
+
+.btn:hover {
+    background-color: white;
+}

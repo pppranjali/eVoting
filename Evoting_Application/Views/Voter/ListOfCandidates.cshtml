@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Evoting_Application.Models.CandidateDetail>
+
+@{
+    ViewBag.Title = "ListOfCandidates";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/List.css">
+    <script>
+       function confirm() {
+            alert("Are you sure?");
+        };
+    </script>
+    
+</head>
+@if (Model != null && Model.Count()>=1)
+{
+<body>
+    <h2>List Of Candidates</h2>
+
+    <table class="table table-hover">
+        <tr class="list-title">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RepresentingParty)
+
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr class="list-item">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RepresentingParty)
+                </td>
+                <td>
+                    <div class="btn btn-default" style="background-color:lightgreen">
+                        @Html.ActionLink("Vote", "Vote", "Result", new { id = item.VoteNumber }, new {onclick=" return confirm()"})
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+}
+@if(Model.Count()==0)
+{
+    <div class="form-div">No Candidates available as per your location .</div>
+}

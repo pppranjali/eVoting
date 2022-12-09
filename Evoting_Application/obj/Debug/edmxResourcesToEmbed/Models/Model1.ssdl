@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EvotingApplicationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Candidate">
+    <Key>
+      <PropertyRef Name="VoteNumber" />
+    </Key>
+    <Property Name="VoteNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RepresentingParty" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="RequestStatus" Type="bit" Nullable="false" />
+    <Property Name="Approval" Type="bit" Nullable="false" />
+    <Property Name="VoterId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocumentUniqueID" />
+    </Key>
+    <Property Name="DocumentUniqueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentPath" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="VoterId" Type="int" />
+    <Property Name="RoleID" Type="int" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="VoterId" />
+    </Key>
+    <Property Name="VoterId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Birthdate" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="MobileNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Results">
+    <Key>
+      <PropertyRef Name="ResultUniqueID" />
+    </Key>
+    <Property Name="ResultUniqueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumberOfVotes" Type="int" Nullable="false" />
+    <Property Name="VoteNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Voter">
+    <Key>
+      <PropertyRef Name="VoterUniqueID" />
+    </Key>
+    <Property Name="VoterUniqueID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HasVoted" Type="bit" Nullable="false" />
+    <Property Name="RequestStatus" Type="bit" Nullable="false" />
+    <Property Name="Approval" Type="bit" Nullable="false" />
+    <Property Name="VoterId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Candidate__Voter__33D4B598">
+    <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration">
+        <PropertyRef Name="VoterId" />
+      </Principal>
+      <Dependent Role="Candidate">
+        <PropertyRef Name="VoterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Document__RoleID__37A5467C">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Document__VoterI__36B12243">
+    <End Role="Registration" Type="Self.Registration" Multiplicity="0..1" />
+    <End Role="Document" Type="Self.Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration">
+        <PropertyRef Name="VoterId" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="VoterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Registrat__RoleI__276EDEB3">
+    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+    <End Role="Registration" Type="Self.Registration" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Registration">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Results__VoteNum__3B75D760">
+    <End Role="Candidate" Type="Self.Candidate" Multiplicity="1" />
+    <End Role="Results" Type="Self.Results" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Candidate">
+        <PropertyRef Name="VoteNumber" />
+      </Principal>
+      <Dependent Role="Results">
+        <PropertyRef Name="VoteNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Voter__VoterId__2E1BDC42">
+    <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
+    <End Role="Voter" Type="Self.Voter" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration">
+        <PropertyRef Name="VoterId" />
+      </Principal>
+      <Dependent Role="Voter">
+        <PropertyRef Name="VoterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="CandidateDetailsForAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="CandidateDetailsListForAdmin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="EvotingApplicationModelStoreContainer">
+    <EntitySet Name="Candidate" EntityType="Self.Candidate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Document" EntityType="Self.Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Voter" EntityType="Self.Voter" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Candidate__Voter__33D4B598" Association="Self.FK__Candidate__Voter__33D4B598">
+      <End Role="Registration" EntitySet="Registration" />
+      <End Role="Candidate" EntitySet="Candidate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Document__RoleID__37A5467C" Association="Self.FK__Document__RoleID__37A5467C">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Document__VoterI__36B12243" Association="Self.FK__Document__VoterI__36B12243">
+      <End Role="Registration" EntitySet="Registration" />
+      <End Role="Document" EntitySet="Document" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Registrat__RoleI__276EDEB3" Association="Self.FK__Registrat__RoleI__276EDEB3">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Registration" EntitySet="Registration" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Results__VoteNum__3B75D760" Association="Self.FK__Results__VoteNum__3B75D760">
+      <End Role="Candidate" EntitySet="Candidate" />
+      <End Role="Results" EntitySet="Results" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Voter__VoterId__2E1BDC42" Association="Self.FK__Voter__VoterId__2E1BDC42">
+      <End Role="Registration" EntitySet="Registration" />
+      <End Role="Voter" EntitySet="Voter" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

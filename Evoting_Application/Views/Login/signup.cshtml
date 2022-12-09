@@ -1,0 +1,164 @@
+﻿@model Evoting_Application.Models.Registration
+
+@{
+    ViewBag.Title = "signup";
+}
+@{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "MALE",
+        Value = "Male"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "FEMALE",
+        Value = "Female",
+    });
+    List<SelectListItem> locations = new List<SelectListItem>();
+    locations.Add(new SelectListItem
+    {
+        Text = "Pune",
+        Value = "Pune"
+    });
+    locations.Add(new SelectListItem
+    {
+        Text = "Mumbai",
+        Value = "Mumbai",
+    });
+    locations.Add(new SelectListItem
+    {
+        Text = "Delhi",
+        Value = "Delhi",
+    });
+    locations.Add(new SelectListItem
+    {
+        Text = "Banglore",
+        Value = "Banglore",
+    });
+
+
+}
+<head>
+    <link rel="stylesheet" href="~/Content/Registration.css">
+   
+</head>
+
+<div class="heading"><div class="heading-text"> Registration</div></div>
+<body>
+
+
+    <div class="form-div ">
+        <div class="form-inside">
+            @using (Html.BeginForm("signup", "Login", FormMethod.Post))
+            {
+
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                            @if (ViewBag.Notification != null)
+                            {
+                                <div style="color:red">@ViewBag.Notification</div>
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2 " })
+                        <div class="col-md-10 password-text">
+                            @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control password-text" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="birthdate" class="control-label col-md-2">Birth Date</label>
+                        <div class="col-md-10">
+
+                            <input type="date" id="birthdate" name="birthdate" />
+
+
+                            @if (ViewBag.UnderAge != null)
+                            {
+                                <div style="color:red">@ViewBag.UnderAge</div>
+                            }
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Gender, listItems, "Select Gender", new { htmlAttributes = new { @class = "form-control" } })
+
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Location, locations, "Select Location", new { htmlAttributes = new { @class = "form-control" } })
+
+                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+
+                        </div>
+                    </div>
+                 
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.MobileNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Register" class="registration-btn btn register" />
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+        <div class="form-inside registration-login-text">Already a registered voter?</div>
+        <div class="form-inside">
+
+            @Html.ActionLink("Login", "login", "Login", new { }, htmlAttributes: new { @class = "registration-btn btn" })
+
+        </div>
+
+    </div> 
+
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,20 @@
+﻿@model Evoting_Application.Models.Registration
+@{
+    ViewBag.Title = "Account";
+}
+               
+    
+<head>
+    <link rel="stylesheet" href="~/Content/VoterPanel.css">
+</head>
+<div class="parent">
+
+
+    <div>@Html.ActionLink(" ", "AccountDetails", new { id = Model.VoterId }, htmlAttributes: new { @class = "registration-btn btn child account-detail" })<div class="child-title">ACCOUNT DETAILS</div></div>
+    <div>@Html.ActionLink(" ", "Document", Model , htmlAttributes: new { @class = "registration-btn btn child upload-documents" })<div class="child-title">UPLOAD DOCUMENTS</div></div>
+    <div>@Html.ActionLink(" ", "ViewDocument", "Document", new { Voterid = Model.VoterId }, new { @class = "registration-btn btn child view-documents" })<div class="child-title">VIEW DOCUMENTS</div> </div>
+    <div>@Html.ActionLink(" ", "Create", "Candidate", Model, new { @class = "registration-btn btn child apply-candidate" }) <div class="child-title">APPLY FOR CANDIDATE POSITION</div></div>
+    <div>@Html.ActionLink(" ", "ListOfCandidates", Model, new {@class= "registration-btn btn child apply-vote" })<div class="child-title">APPLY FOR VOTE</div> </div>
+    <div>@Html.ActionLink(" ", "Result", "Result", new { id = Model.VoterId }, new { @class = "registration-btn btn child result" })<div class="child-title">SHOW RESULT</div> </div>
+</div>
+

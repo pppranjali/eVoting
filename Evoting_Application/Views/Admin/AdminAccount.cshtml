@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "AdminAccount";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/AdminAccount.css">
+</head>
+<div class="heading-text">Admin Account</div>
+<div class="parent">
+    <div class="child-title"> @Html.ActionLink(" ", "VoterDocument", new { }, htmlAttributes: new { @class = "registeration-btn btn child one" })Voter Document Verification</div>
+    <div class="child-title">
+        @Html.ActionLink(" ", "CandidateDocument", new { }, htmlAttributes: new { @class = "registeration-btn btn child one" })Candidate Document Verification
+    </div>
+    <div class="child-title">@Html.ActionLink(" ", "VoterList", new { }, htmlAttributes: new { @class = "registeration-btn btn child two"})View Voter List</div>
+    <div class="child-title"> @Html.ActionLink(" ", "CandidateList", new { }, htmlAttributes: new { @class = "registeration-btn btn child two" })View Candidate List</div>
+    <div class="child-title">@Html.ActionLink(" ", "DeclareResult", new { }, htmlAttributes: new { @class = "registeration-btn btn child date" })Declare Result</div>
+</div>
+

@@ -1,0 +1,54 @@
+﻿.form-div {
+    background-color: rosybrown;
+    width: 500px;
+    margin-left: 350px;
+    height: 580px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+}
+.form-inside{
+    margin-left:60px;
+    
+}
+.heading {
+    background-color: #3D5361;
+    color: white;
+    text-align: center;
+    height: 30px;
+    
+}
+.heading-text {
+    margin-top: 20px;
+    font-weight: 900;
+    font-size: large;
+    margin-left: 40px
+}
+
+
+.registration-btn {
+    background-color: #3D5361;
+    text-align: center;
+    padding: 10px 15px;
+    color: white;
+    width:100px;
+    border-radius:20px;
+}
+.btn:hover {
+    background-color: #FFEFCB;
+}
+.registration-login-text {
+    font-weight: bold;
+    font-size: small;
+    font-display:block;
+}
+.register{
+    width:200px;
+}
+.login {
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+.password-textbox{
+    height:30px;
+    width:300px;
+
+}

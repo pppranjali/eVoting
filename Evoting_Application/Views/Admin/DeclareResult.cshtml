@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "DeclareResult";
+}
+
+<head>
+    <link rel="stylesheet" href="~/Content/Notification.css">
+    <script>
+       function confirm() {
+            alert("Confirm?");
+        };
+    </script>
+</head>
+
+@using (@Html.BeginForm("Date", "Admin"))
+{
+    <div class="form-div">
+        
+                <div><input type="date" name="Date" style="background-color:rosybrown"></div>
+          
+                <div style="margin-top:10px;"><input type="submit" value="SET DATE FOR RESULT" class="btn btn-default" onclick="return confirm()" /></div> 
+    </div>
+}

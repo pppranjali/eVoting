@@ -1,0 +1,68 @@
+﻿@model Evoting_Application.Models.WinnerCandidateDetail
+
+@{
+    ViewBag.Title = "Result";
+}
+
+<h2>Election Result 2022</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/Result.css">
+</head>
+@if (Model != null)
+{
+<div>
+    <div class="heading-text">Winner Candidate Detail</div>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="form-div">
+            <dt>
+                Voter ID:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VoterId)
+            </dd>
+
+            <dt>
+                Candidate Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CandidateName)
+            </dd>
+
+            <dt>
+                Number Of Votes:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VoterCount)
+            </dd>
+
+            <dt>
+                Vote Number :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VoteNumber)
+            </dd>
+
+            <dt>
+                Location:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.location)
+            </dd>
+        </div>
+
+    </dl>
+</div>
+}
+@if(Model==null)
+            {
+                <div class="form-noresult">Result have not been announced yet.</div>
+            }
+
+   
+

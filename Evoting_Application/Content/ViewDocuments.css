@@ -1,0 +1,31 @@
+﻿.inside-table{
+    margin-left:350px;
+    width:600px;
+    margin-top:20px;
+}
+
+.edit-text {
+    font-weight: bold;
+    font-size: large;
+    font-display: block;
+    background-color:rosybrown;
+    color:white;
+    width:500px;
+    text-align:center;
+}
+.form-div {
+    background-color: rosybrown;
+    width: 600px;
+    margin-left: 280px;
+    margin-top: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    border: solid;
+    padding: 20px 20px 20px 20px;
+    height: 70px;
+    font-weight: bold;
+    font-size: large;
+    font-display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+}

@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Evoting_Application.Models.Voter>
+
+@{
+    ViewBag.Title = "VoterDocument";
+}
+
+<h2>Voters List for Approval</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/List.css">
+    <script>
+       function confirm() {
+            alert("Are you sure?");
+        };
+    </script>
+</head>
+<table class="table">
+    <tr class="list-title">
+        <th>
+            @Html.DisplayNameFor(model => model.VoterUniqueID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HasVoted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Approval)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="list-title">
+        <td>
+            @Html.DisplayFor(modelItem => item.VoterUniqueID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasVoted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Approval)
+        </td>
+        <td>
+            @Html.ActionLink("View Documents", "ViewDocument", "Document", new { Voterid = item.VoterId }, new { area = "" })
+        </td>
+        <td>
+            
+                @Html.ActionLink("Approve", "ApproveVoter", new { id = item.VoterId }, new { @class= "registration-btn btn", onclick = " return confirm()" })
+            
+            
+                @Html.ActionLink("Deny", "DenyVoter", new { id = item.VoterId }, new { @class = "registration-btn btn",onclick = " return confirm()" } )
+            
+        </td>
+    </tr>
+}
+
+</table>

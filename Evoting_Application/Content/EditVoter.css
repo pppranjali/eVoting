@@ -1,0 +1,53 @@
+﻿.form-div {
+    background-color: rosybrown;
+    width: 600px;
+    margin-left: 280px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    border: solid;
+    padding: 20px 20px 20px 20px;
+    height: 600px;
+    font-weight: bold;
+    font-size: large;
+    font-display: block;
+    text-align: center;
+}
+
+.form-inside {
+    margin-left: 60px;
+    height:600px;
+    
+}
+
+.btn:hover {
+    background-color: #FFEFCB;
+}
+
+.registration-btn {
+    background-color: #3D5361;
+    text-align: center;
+    padding: 10px 15px;
+    color: white;
+    width: 100px;
+    border-radius: 20px;
+    margin-right: 200px;
+}
+
+.edit-text {
+    font-weight: bold;
+    font-size: small;
+    font-display: block;
+}
+.btw-space{
+    margin-left:20px;
+}
+.mobile{
+    margin-left:10px;
+}
+.btn:hover {
+    background-color: #FFEFCB;
+}
+
+body {
+    background-image: url(https://media.istockphoto.com/id/1157329161/photo/white-marble-texture-background-with-detailed-structure-high-resolution-bright-and-luxurious.jpg?b=1&s=170667a&w=0&k=20&c=dtUKwr18pkZaRkm7YyFbjyXrLvAUqsR6HbYapJB0R0U=);
+}

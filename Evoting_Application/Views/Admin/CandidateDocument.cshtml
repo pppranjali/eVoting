@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Evoting_Application.Models.Candidate>
+
+@{
+    ViewBag.Title = "CandidateDocument";
+}
+<head>
+    <link rel="stylesheet" href="~/Content/List.css">
+    <script>
+       function confirm() {
+            alert("Are you sure?");
+        };
+    </script>
+</head>
+<h2>List of Candidates for approval</h2>
+
+<table class="table">
+    <tr class="list-title">
+        <th>
+            @Html.DisplayNameFor(model => model.VoteNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RepresentingParty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Approval)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VoterId)
+        </th>
+
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="list-item">
+            <td>
+                @Html.DisplayFor(modelItem => item.VoteNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RepresentingParty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approval)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoterId)
+            </td>
+            <td>
+                @Html.ActionLink("View Documents", "ViewDocument", "Document", new { Voterid = item.VoterId }, new { area = "" })
+            </td>
+           
+            <td>
+                
+                    @Html.ActionLink("Approve", "ApproveCandidate", new { id = item.VoterId }, new { @class = "registration-btn btn", onclick = " return confirm()" })
+                
+                    @Html.ActionLink("Deny", "DenyCandidate", new { id = item.VoterId }, new { @class = "registration-btn btn", onclick = " return confirm()" })
+                
+            </td>
+        </tr>
+    }
+
+</table>
+

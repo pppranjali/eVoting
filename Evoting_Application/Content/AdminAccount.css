@@ -1,0 +1,72 @@
+﻿.registration-btn {
+    text-align: center;
+    color: white;
+    border-radius: 30px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.6), 1px 6px 20px 1px rgba(0, 0, 0, 0.25);
+}
+
+.parent {
+    background-image: url(..//Scripts/Backgroundimages/istockphoto-1157329161-170667a.jpg);
+    background-color: #FFFDE7;
+    height: 50rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 2rem;
+    margin-left: 30px;
+    margin-top:20px;
+    padding-right: 30px;
+    width:50px;
+}
+
+.child {
+    height: 16rem;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 1px 4px 8px 1px rgba(0, 0, 0, 0.6), 1px 6px 20px 1px rgba(0, 0, 0, 0.25);
+    background-color: rosybrown;
+    margin-left: 10px;
+}
+
+.child-title {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: large;
+    font-display: block; 
+    width: 350px;
+}
+.heading-text {
+    margin-top: 20px;
+    font-weight: 900;
+    font-size: large;
+    margin-left: 40px
+}
+
+.btn:hover {
+    background-color: #FFFDE7;
+}
+
+.one{
+    background-image:url(../Scripts/Backgroundimages/VoterlistAdmin.jpg);
+    background-position:center;
+    background-size:50% 80%;
+    background-repeat:no-repeat;
+}
+
+
+.two{
+    background-image: url(../Scripts/Backgroundimages/ListAdmin.jpg);
+    background-position: center;
+    background-size: 50% 80%;
+    background-repeat: no-repeat;
+}
+.date{
+    background-image: url(../Scripts/Backgroundimages/SetDateAdmin.jpg);
+    background-position: center;
+    background-size: 50% 80%;
+    background-repeat: no-repeat;
+}

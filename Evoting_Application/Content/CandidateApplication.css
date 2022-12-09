@@ -1,0 +1,60 @@
+﻿.form-div {
+    background-color: rosybrown;
+    width: 600px;
+    margin-left: 280px;
+    margin-top: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    border: solid;
+    padding: 20px 20px 20px 20px;
+    height: 290px;
+    font-weight: bold;
+    font-size: large;
+    font-display: block;
+    text-align: center;
+}
+.form-age {
+    background-color: rosybrown;
+    width: 600px;
+    margin-left: 280px;
+    margin-top: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    border: solid;
+    padding: 20px 20px 20px 20px;
+    height: 200px;
+    font-weight: bold;
+    font-size: large;
+    font-display: block;
+    text-align: center;
+}
+.form-inside {
+    margin-left: 60px;
+}
+
+.document-inside {
+    margin-left: 90px;
+}
+
+.btn:hover {
+    background-color: #FFEFCB;
+}
+
+.registration-btn {
+    background-color: #3D5361;
+    text-align: center;
+    padding: 10px 15px;
+    color: white;
+    width: 150px;
+    border-radius: 20px;
+    margin-right: 120px;
+    margin-top: 10px;
+}
+
+.edit-text {
+    font-weight: bold;
+    font-size: large;
+    font-display: block;
+}
+
+.btn:hover {
+    background-color: #FFEFCB;
+}

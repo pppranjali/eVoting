@@ -1,0 +1,61 @@
+﻿@model Evoting_Application.Models.Document
+
+@{
+    ViewBag.Title = "Create";
+    Model.VoterId = ViewBag.VoterId;
+    Model.RoleID = ViewBag.RoleID;
+}
+
+
+@using (Html.BeginForm("Create", "Document", FormMethod.Post,  new { @enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+
+<head>
+    <link rel="stylesheet" href="~/Content/DocumentSubmission.css">
+</head>
+<div class="form-div">
+    <div class="form-inside">
+        <div class="form-horizontal">
+            <div>Document Submission </div>
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            @Html.HiddenFor(m => m.VoterId)
+
+            @Html.HiddenFor(m => m.RoleID)
+            <div>
+                <dl class="dl-horizontal">
+                    <dt>@Html.DisplayNameFor(model => model.VoterId)</dt>
+
+                    <dd>@Html.DisplayFor(model => model.VoterId)</dd>
+                </dl>
+            </div>
+
+            <div class="document-inside">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Aadhar, htmlAttributes: new { @class = "control-label col-md-2  edit-text" })
+                    <div class="col-md-10">
+                        <input type="file" name="Aadhar"  style="margin-top:5px"required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Pan, htmlAttributes: new { @class = "control-label col-md-2 " })
+                    <div class="col-md-10">
+                        <input type="file" name="Pan" style="margin-top:5px" required />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit Documents" class="registration-btn btn" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}
+

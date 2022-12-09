@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Evoting_Application", "Evoting_Application\Evoting_Application.csproj", "{09FEE2E1-32EB-45C7-BEF6-7D3629BB368E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09FEE2E1-32EB-45C7-BEF6-7D3629BB368E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09FEE2E1-32EB-45C7-BEF6-7D3629BB368E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09FEE2E1-32EB-45C7-BEF6-7D3629BB368E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09FEE2E1-32EB-45C7-BEF6-7D3629BB368E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0590064-EF42-4111-84E0-B3CAF139B5A7}
+	EndGlobalSection
+EndGlobal

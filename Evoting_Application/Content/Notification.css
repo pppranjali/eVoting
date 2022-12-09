@@ -1,0 +1,21 @@
+﻿.form-div {
+    background-color: rosybrown;
+    width: 600px;
+    margin-left: 280px;
+    margin-top:80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    border:solid;
+    padding:20px 20px 20px 20px ;
+    height:150px;
+    font-weight: bold;
+    font-size: large;
+    font-display: block;
+    text-align:center;
+    color:white;
+}
+.btn:hover {
+    background-color: #FFEFCB;
+}
+body {
+    background-image: url(https://media.istockphoto.com/id/1157329161/photo/white-marble-texture-background-with-detailed-structure-high-resolution-bright-and-luxurious.jpg?b=1&s=170667a&w=0&k=20&c=dtUKwr18pkZaRkm7YyFbjyXrLvAUqsR6HbYapJB0R0U=);
+}

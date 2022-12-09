@@ -1,0 +1,75 @@
+﻿@model Evoting_Application.Models.Candidate
+
+@{
+    ViewBag.Title = "Create";
+
+}
+@{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "BJP",
+        Value = "BJP"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Congress",
+        Value = "Congress",
+    });
+
+}
+<h2>Applying for Candidate</h2>
+<head>
+    <link rel="stylesheet" href="~/Content/CandidateApplication.css">
+</head>
+@if (Model != null || ViewBag.Message!=null)
+{
+
+    Model.VoterId = ViewBag.VoterId;
+    using (Html.BeginForm("Create", "Candidate", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+<div class="form-div">
+    <div class="form-horizontal">
+        <div class="edit-text">Candidate Application</div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-inside">
+        @Html.HiddenFor(m => m.VoterId)
+        <div>
+            <dl class="dl-horizontal">
+                <dt>   @Html.DisplayNameFor(model => model.VoterId)</dt>
+
+                <dd>  @Html.DisplayFor(model => model.VoterId)</dd>
+            </dl>
+        </div>
+
+
+        <div class="form-group">
+            <label style="margin-right:50px;">Representing Party</label>
+            <div class="col-md-10">
+
+                @Html.ValidationMessageFor(model => model.RepresentingParty, "", new { @class = "text-danger" })
+
+                @Html.DropDownListFor(model => model.RepresentingParty, listItems, "Select Party", new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                @if (ViewBag.Message != null)
+                {
+                    <div style="color:red">@ViewBag.Message</div>
+                }
+            </div> 
+        </div>
+    </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Apply" class="registration-btn btn" />
+            </div> 
+        </div>
+    </div>
+    </div>
+    }
+
+}
+@if (Model == null && ViewBag.Message==null)
+{
+    <div class="form-age">Sorry! you cannot apply for the candidate post due to age restriction.</div>
+}

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Evoting_Application.Models.Registration>
+
+@{
+    ViewBag.Title = "VoterList";
+}
+
+<h2>Voter List</h2>
+
+@using (@Html.BeginForm("SearchVoter", "Admin"))
+{
+    <table>
+        <tr>
+            <th><input type="text" name="VoterName" class="btn-centre"></th>
+        
+            <th><input type="submit"  value="Search voter name" class="btn btn-default" style="color:black; margin-left:20px" /></th>
+        </tr>
+    </table>
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VoterId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Birthdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RoleID)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoterId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditVoter", new {  Voterid=item.VoterId  }) 
+                
+            </td>
+        </tr>
+    }
+
+</table>
+
