@@ -1,0 +1,26 @@
+﻿// See https://aka.ms/new-console-template for more information
+using serialize_pract;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.IO;
+Student s = new Student();
+Console.WriteLine("enter id");
+int Id = Convert.ToInt32(Console.ReadLine());
+s.id = Id;
+string path = @"C:\Coditas_\MyPractFile\Practise.txt";
+FileStream fs;
+fs = new FileStream(path,FileMode.OpenOrCreate);
+BinaryFormatter binaryFormatter = new BinaryFormatter();
+//binaryFormatter.Serialize(fs, s);
+string jsonString = JsonSerializer.Serialize(s);
+Console.WriteLine(jsonString);
+fs.Close();
+fs = new FileStream(path, FileMode.Append, FileAccess.Write);
+StreamWriter sw = new StreamWriter(fs);
+sw.WriteLine(jsonString);
+sw.Dispose();
+sw.Close();
+fs.Close();

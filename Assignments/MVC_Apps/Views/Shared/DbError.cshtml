@@ -1,0 +1,18 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "DbError";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">Sorry, you have made a mistake.</h2>
+
+@if(Model==null)
+{
+    <div class="container">
+        <p class="alert alert-danger">
+            Error Occurred in @ViewData["Controller"] Controller in its @ViewData["Action"] action method.
+            The Error is @ViewData["ErrorMessage"]
+        </p>
+    </div>
+    <a asp-action="@ViewData["Action"]" asp-controller="@ViewData["Controller"]">Go Back</a>
+}
